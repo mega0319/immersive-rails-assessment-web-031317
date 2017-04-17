@@ -1,0 +1,34 @@
+<h1>Choose an Appearance and Rate it!</h1> <br>
+
+<h1> GUEST IDs </h1> <br>
+<% @guests.each do |guest| %>
+<label>Name:</label>
+<%= guest.name %>  <br>
+<label>GuestID:</label>
+<%= guest.id %> <br> <br>
+<% end %>
+
+<h1>EPISODE IDs </h1> <br>
+<% @episodes.each do |episode| %>
+<label> Episode Number:</label>
+<%= episode.number %>  <br>
+<label> Episode Date:</label>
+<%= episode.date %> <br>
+<label>Episode ID:</label>
+<%= episode.id %> <br> <br>
+<% end %>
+
+
+
+
+
+<%= form_for @guest_episode do |f| %>
+<%= f.label :guest_id, "Pick GuestID from above" %>
+<%= f.number_field :guest_id %>
+<%= f.label :episode_id , "Pick EpisodeID from above" %>
+<%= f.number_field :episode_id %>
+<%= f.label :rating, "Rate the Appearance" %>
+<%= f.number_field :rating %>
+
+<%= f.submit "Submit Appearance/Rating" %>
+<% end %>

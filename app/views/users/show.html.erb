@@ -1,0 +1,21 @@
+<h1> Welcome, <%= @user.username %>! </h1>
+
+<%= link_to "Click to see All Guests", guests_path %> <br>
+<%= link_to "Click to see All Episodes", episodes_path %> <br>
+<%= link_to "Add an Appearance", new_guest_episode_path %> <br> <br>
+
+<h1>All the Appearances You Rated: </h1> <br>
+
+<% @guest_episodes.each do |guest_ep| %>
+<label>Episode Number:</label>
+<%= guest_ep.episode.number %> <br>
+<label>Episode Air Date: </label>
+<%= guest_ep.episode.date %> <br>
+<label>Guest Name:</label>
+<%= guest_ep.guest.name %> <br>
+<label>Rating: </label>
+<%= guest_ep.rating %> <br> <br>
+
+<% end %>
+
+<%= link_to "Log Out", logout_path, method: "delete" %>
